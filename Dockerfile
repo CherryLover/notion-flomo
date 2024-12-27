@@ -5,6 +5,9 @@ WORKDIR /app
 # 安装 cron
 RUN apt-get update && apt-get install -y cron
 
+# 设置环境变量
+ENV PATH="/usr/local/bin:${PATH}"
+
 # 复制项目文件
 COPY . .
 
