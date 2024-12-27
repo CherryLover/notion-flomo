@@ -2,6 +2,6 @@
 # * * * * * cd /app && /usr/local/bin/python -u test.py >> /var/log/cron.log 2>&1
 
 # 每3小时执行一次同步任务（暂时注释）
-2 * * * * cd /app && /usr/local/bin/python -u flomo2notion.py >> /var/log/cron.log 2>&1
+2 * * * * cd /app && /usr/local/bin/python -u /app/flomo/flomo2notion.py >> /var/log/cron.log 2>&1
 
 # 保持一个空行在文件末尾 
