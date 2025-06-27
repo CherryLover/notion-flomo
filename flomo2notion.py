@@ -28,9 +28,7 @@ class Flomo2Notion:
             "标题": notion_utils.get_title(
                 truncate_string(content_text)
             ),
-            "标签": notion_utils.get_multi_select(
-                memo['tags']
-            ),
+            "标签": notion_utils.get_multi_select( [tag.replace(',', '') for tag in memo['tags']] ),
             "是否置顶": notion_utils.get_select("否" if memo['pin'] == 0 else "是"),
             # 文件的处理方式待定
             # "文件": notion_utils.get_file(""),
@@ -67,9 +65,7 @@ class Flomo2Notion:
             ),
             "更新时间": notion_utils.get_date(memo['updated_at']),
             "链接数量": notion_utils.get_number(memo['linked_count']),
-            "标签": notion_utils.get_multi_select(
-                memo['tags']
-            ),
+            "标签": notion_utils.get_multi_select( [tag.replace(',', '') for tag in memo['tags']] ),
             "是否置顶": notion_utils.get_select("否" if memo['pin'] == 0 else "是"),
         }
         page = self.notion_helper.client.pages.update(page_id=page_id, properties=properties)
